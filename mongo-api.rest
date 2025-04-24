@@ -1,0 +1,38 @@
+### Get all users
+GET http://localhost:3030/mongo/users
+
+### Create a new user
+POST http://localhost:3030/mongo/users
+Content-Type: application/json
+
+{
+    "username":"earn237",
+    "name" : "Test Person",
+    "email" :"testperson01@example.com"
+}
+
+### Update a new user
+PUT http://localhost:3030/mongo/users/680a0ff728d491dc2b74bfee
+Content-Type: application/json
+
+{
+    "username":"earn125",
+    "name" : "Test Person1",
+    "email" :"testperson002@example.com"
+}
+
+
+### Get all notes
+GET http://localhost:3030/mongo/notes
+
+### Create a new note
+POST http://localhost:3030/mongo/notes
+Content-Type: application/json
+
+{
+    "title" : "Test Note",
+    "content" :"testnote@example.com",
+    "tags": ["nodejs","express"],
+    "isPinned": false,
+    "userId": "6809c2ea12a27dedd019aac6"
+}
