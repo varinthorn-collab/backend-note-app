@@ -21,22 +21,6 @@ Content-Type: application/json
     "email" :"testperson002@example.com"
 }
 
-
-### Get all notes
-GET http://localhost:3030/mongo/notes
-
-### Create a new note
-POST http://localhost:3030/mongo/notes
-Content-Type: application/json
-
-{
-    "title" : "Test Note",
-    "content" :"testnote@example.com",
-    "tags": ["nodejs","express"],
-    "isPinned": false,
-    "userId": "6809c2ea12a27dedd019aac6"
-}
-
 ###Register a new user
 
 POST http://localhost:3030/mongo/auth/register
@@ -59,11 +43,30 @@ Content-Type: application/json
     "password": "va1232"
 }
 
+###delete user
+DELETE http://localhost:3030/mongo/users/680b18c4a6a99157f97f7758
+Content-Type: application/json
+
+
+### Get all notes
+GET http://localhost:3030/mongo/notes
+
+### Create a new note
+POST http://localhost:3030/mongo/notes
+Content-Type: application/json
+
+{
+    "title" : "Test Note",
+    "content" :"testnote@example.com",
+    "tags": ["nodejs","express"],
+    "isPinned": false,
+    "userId": "6809c2ea12a27dedd019aac6"
+}
 
 ### Add new note (protected Route)
 POST http://localhost:3030/mongo/add-note
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU1Njk3MjAsImV4cCI6MTc0NTU3MzMyMH0.9u9MNIChbH_Z-u9cw5c2K2Fzj3fEXQSXXLMUQaodbfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU4MjM3NDksImV4cCI6MTc0NTgyNzM0OX0.JiakUSijbu3bph_6crXRKt5khxG682FzNkmXrLVD6tY
 
 {
     "title": "funny1",
@@ -73,10 +76,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiM
 }
 
 ### Get all notes for the login user
-GET http://localhost:3030/mongo/get-all-notes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU1Njk3MjAsImV4cCI6MTc0NTU3MzMyMH0.9u9MNIChbH_Z-u9cw5c2K2Fzj3fEXQSXXLMUQaodbfo
+GET http://localhost:3030/mongo/get-notes-by-id
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU4MjM3NDksImV4cCI6MTc0NTgyNzM0OX0.JiakUSijbu3bph_6crXRKt5khxG682FzNkmXrLVD6tY
 
 
 ### Search notes 
-GET http://localhost:3030/mongo/search-notes?query=funny
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU1Njk3MjAsImV4cCI6MTc0NTU3MzMyMH0.9u9MNIChbH_Z-u9cw5c2K2Fzj3fEXQSXXLMUQaodbfo
+GET http://localhost:3030/mongo/search-notes?query=this
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBiMThjNGE2YTk5MTU3Zjk3Zjc3NTgiLCJpYXQiOjE3NDU4MjM3NDksImV4cCI6MTc0NTgyNzM0OX0.JiakUSijbu3bph_6crXRKt5khxG682FzNkmXrLVD6tY
