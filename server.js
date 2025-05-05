@@ -72,11 +72,14 @@ const db = createClient({
  `)
 })()
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to the Note App API!" });
+});
+
+
 app.use("/", apiRoutes(db));
 
 
 app.listen(PORT,() => {
     console.log(`Server running on http://localhost:${PORT}`)
 })
-
-
