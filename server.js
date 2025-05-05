@@ -3,6 +3,8 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import { createClient } from "@libsql/client"
 import apiRoutes from "./api/v1/routes.js"
+import cors from "cors";
+import cookieParser from 'cookie-parser';
 
 dotenv.config()
 
@@ -10,7 +12,14 @@ const app = express()
 
 const PORT = process.env.PORT  
 
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
+
 app.use(express.json())
+
+app.use(cookieParser());
 
 const db = createClient({
     url: process.env.TURSO_DB_URL,

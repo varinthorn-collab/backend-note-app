@@ -10,7 +10,7 @@ const UserSchema = new Schema({
         minlength: 3,
         maxlength: 30
     },
-    name: {type: String},
+    name: {type: String, required: true},
     email: {type: String},
     password: {type: String, required: true},
     createdOn: {type: Date, default: new Date().getTime()},
