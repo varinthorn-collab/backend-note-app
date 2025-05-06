@@ -39,20 +39,20 @@ Content-Type: application/json
 
 ###Login with the registered user
 
-POST http://localhost:3030/mongo/auth/login
+POST https://backend-note-app-1-qnpq.onrender.com/mongo/auth/login
 Content-Type: application/json
 
 {
-    "email": "earnnote@gmail.com",
-    "password": "earnnote"
+    "email": "mynote@gmail.com",
+    "password": "mynote"
 }
 
 ###Logout
 POST http://localhost:3030/mongo/auth/logout
 
 ### Get user in protected route
-GET http://localhost:3030/mongo/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE3YWI1NWI3ZjFkMzgyMDBlNzU3YjkiLCJpYXQiOjE3NDYzODI3MzEsImV4cCI6MTc0NjM4NjMzMX0.XnTRcsWismukB9W2HHfmPVp_LnczW9VUeq6fcplVOjs
+GET https://backend-note-app-1-qnpq.onrender.com/mongo/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4ZWEyOGZhZGVhNTBjZDU5Y2UzMDEiLCJpYXQiOjE3NDY1MDQxODgsImV4cCI6MTc0NjUwNzc4OH0.WGhHsBeHVVS69MjmJgvXIiqkasKzklqHIQBJjcRhHr0
 
 ### Get user by id
 GET http://localhost:3030/mongo/public-profile/6817ab55b7f1d38200e757b9

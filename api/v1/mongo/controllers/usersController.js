@@ -180,14 +180,15 @@ export const RegisterUser = async (req,res) => {
         }
         const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, { expiresIn: "1h",});
         //jwt.sign is to access jwt secret to verify whether token is correct and available. Token is like a user card that represent user and contain user info. The last parameters is to make token expired 1 hr (otherwise the token will be remembered in local storage and anyone can log in with this device in anytime). This makes the web log out in 1 hr after used which making it more secure.
-
+        const isProd = process.env.NODE_ENV === "production";
         // Set the token in an HTTP-only cookie
         res.cookie("accessToken", token, {
-           httpOnly: true, //  Makes the cookie inaccessible to client-side JavaScript
-           secure: process.env.NODE_ENV === "production", // Send only over HTTPS in production
-           sameSite: "Strict", // Helps mitigate CSRF attacks. Use 'Lax' if needed for cross-site redirects.
-           maxAge: 60 * 60 * 1000 // 1 hour in milliseconds (should match token expiry)
-        });
+            httpOnly: true,
+            secure: isProd, // only send over HTTPS in prod
+            sameSite: isProd ? "none" : "lax",
+            path: "/",
+            maxAge: 60 * 60 * 1000, // 1 hour
+          });
 
         res.json({
             error: false,
